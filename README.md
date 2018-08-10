@@ -1,2 +1,72 @@
-# jianos-manifest
-JianOS Manifest
+# 简OS #
+
+### 同步 ###
+
+```bash
+
+# 初始化本地存储库
+repo init -u https://github.com/PixelExperience/manifest -b oreo-mr1
+
+# 同步
+repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
+```
+
+### 建立 ###
+
+```bash
+
+# 设置环境
+$ . build/envsetup.sh
+
+# 选择一个目标
+$ lunch aosp_$device-userdebug
+
+# 建立代码
+$ mka bacon -j4
+```
+
+### 提交Patches ###
+
+Patches是经常欢迎的！请提交您的patches到我们的Gerrit。
+
+要开始投稿，只需要在 https://gerrit.pixelexperience.org 注册
+
+打开终端来创建您需要提交patches到gerrit的ssh密钥并输入：
+
+```bash
+git config --global review.gerrit.pixelexperience.org.username <您注册时输入的用户名>
+
+git config --global review.gerrit.pixelexperience.org.email <您注册时输入的邮箱>
+
+ssh-keygen -t rsa -C "您的@email.com"
+```
+
+在我们的gerrit点击您的"Avatar"在右上角，然后on "Settings"。
+
+而在“设置”点击“SSH公共密钥”在左手边然后“添加密钥”。
+
+现在在您的计算机navigate to您的home "~/.ssh"并打开"id_rsa.pub", 复制/粘贴the context to "Gerrit SSH公共密钥"。
+
+您可以patches给我们通过在终端使用这些命令：
+
+```
+    （从android根目录）
+    . build/envsetup.sh
+    （Go to存储库您正在patching, 作出您的改变并commit）
+    pixelgerrit push oreo-mr1
+
+    或者
+
+    git push ssh://<用户名>@gerrit.pixelexperience.org:29418/<项目> HEAD:refs/for/<分支>
+```
+
+* `<用户名>` - 您的Gerrit用户名 (which can be seen/set [这里](https://gerrit.pixelexperience.org/#/settings/))
+* `<项目>` - The git存储库you are pushing to; all options can be viewed at [此链接](https://gerrit.pixelexperience.org/#/admin/projects/)
+* `<分支>` - The git分支您的change is基于；对于使用此项目清单的项目，是`oreo-mr1`
+
+作出您的改变并commit通过一条详细信息，starting with what you are working with
+Commit您的patches in a single commit. Squash multiple commits使用此命令：`git rebase -i HEAD~<# of commits>`
+
+要得到更多帮助，使用此命令：`pixelgerrit help`或者`pixelrebase help`
+
+[查看代码审核](https://gerrit.pixelexperience.org/)
