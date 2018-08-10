@@ -1,0 +1,2 @@
+# jianos-manifest
+JianOS Manifest
