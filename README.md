@@ -5,7 +5,7 @@
 ```bash
 
 # 初始化本地存储库
-repo init -u https://github.com/PixelExperience/manifest -b master
+repo init -u https://github.com/LTDSA/jianos-manifest -b master
 
 # 同步
 repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
