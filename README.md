@@ -5,7 +5,7 @@
 ```bash
 
 # 初始化本地存储库
-repo init -u https://github.com/PixelExperience/manifest -b oreo-mr1
+repo init -u https://github.com/PixelExperience/manifest -b master
 
 # 同步
 repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
@@ -62,7 +62,7 @@ ssh-keygen -t rsa -C "您的@email.com"
 
 * `<用户名>` - 您的Gerrit用户名 (which can be seen/set [这里](https://gerrit.pixelexperience.org/#/settings/))
 * `<项目>` - The git存储库you are pushing to; all options can be viewed at [此链接](https://gerrit.pixelexperience.org/#/admin/projects/)
-* `<分支>` - The git分支您的change is基于；对于使用此项目清单的项目，是`oreo-mr1`
+* `<分支>` - The git分支您的change is基于；对于使用此项目清单的项目，是`master`
 
 作出您的改变并commit通过一条详细信息，starting with what you are working with
 Commit您的patches in a single commit. Squash multiple commits使用此命令：`git rebase -i HEAD~<# of commits>`
